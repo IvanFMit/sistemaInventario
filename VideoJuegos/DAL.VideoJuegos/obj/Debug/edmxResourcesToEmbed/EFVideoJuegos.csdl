@@ -1,0 +1,195 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="VideoJuegosDatabaseModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="VideoJuegosDatabaseEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="Categoria" EntityType="VideoJuegosDatabaseModel.Categoria" />
+    <EntitySet Name="Consola" EntityType="VideoJuegosDatabaseModel.Consola" />
+    <EntitySet Name="Producto" EntityType="VideoJuegosDatabaseModel.Producto" />
+    <EntitySet Name="ProductoConsola" EntityType="VideoJuegosDatabaseModel.ProductoConsola" />
+    <EntitySet Name="Renta" EntityType="VideoJuegosDatabaseModel.Renta" />
+    <EntitySet Name="TipoRenta" EntityType="VideoJuegosDatabaseModel.TipoRenta" />
+    <AssociationSet Name="FK_Producto_ToTable" Association="VideoJuegosDatabaseModel.FK_Producto_ToTable">
+      <End Role="Categoria" EntitySet="Categoria" />
+      <End Role="Producto" EntitySet="Producto" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable_1" Association="VideoJuegosDatabaseModel.FK_Table_ToTable_1">
+      <End Role="Consola" EntitySet="Consola" />
+      <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Table_ToTable" Association="VideoJuegosDatabaseModel.FK_Table_ToTable">
+      <End Role="Producto" EntitySet="Producto" />
+      <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Renta_ToTable" Association="VideoJuegosDatabaseModel.FK_Renta_ToTable">
+      <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+      <End Role="Renta" EntitySet="Renta" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Renta_ToTable_1" Association="VideoJuegosDatabaseModel.FK_Renta_ToTable_1">
+      <End Role="TipoRenta" EntitySet="TipoRenta" />
+      <End Role="Renta" EntitySet="Renta" />
+    </AssociationSet>
+    <EntitySet Name="Usuario" EntityType="VideoJuegosDatabaseModel.Usuario" />
+    <EntitySet Name="Cliente" EntityType="VideoJuegosDatabaseModel.Cliente" />
+    <AssociationSet Name="FK_Renta_Cliente" Association="VideoJuegosDatabaseModel.FK_Renta_Cliente">
+      <End Role="Cliente" EntitySet="Cliente" />
+      <End Role="Renta" EntitySet="Renta" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Categoria">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Producto" Relationship="VideoJuegosDatabaseModel.FK_Producto_ToTable" FromRole="Categoria" ToRole="Producto" />
+  </EntityType>
+  <EntityType Name="Consola">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductoConsola" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable_1" FromRole="Consola" ToRole="ProductoConsola" />
+  </EntityType>
+  <EntityType Name="Producto">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Estado" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="Existencia" Nullable="false" />
+    <Property Type="Int32" Name="CodigoCategoria" Nullable="false" />
+    <NavigationProperty Name="Categoria" Relationship="VideoJuegosDatabaseModel.FK_Producto_ToTable" FromRole="Producto" ToRole="Categoria" />
+    <NavigationProperty Name="ProductoConsola" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable" FromRole="Producto" ToRole="ProductoConsola" />
+  </EntityType>
+  <EntityType Name="ProductoConsola">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CodigoProducto" Nullable="false" />
+    <Property Type="Int32" Name="CodigoConsola" Nullable="false" />
+    <Property Type="Int32" Name="Existencia" Nullable="false" />
+    <NavigationProperty Name="Consola" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable_1" FromRole="ProductoConsola" ToRole="Consola" />
+    <NavigationProperty Name="Producto" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable" FromRole="ProductoConsola" ToRole="Producto" />
+    <NavigationProperty Name="Renta" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable" FromRole="ProductoConsola" ToRole="Renta" />
+  </EntityType>
+  <EntityType Name="Renta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="CodigoProductoConsola" Nullable="false" />
+    <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
+    <Property Type="Int32" Name="CodigoTipoRenta" Nullable="false" />
+    <Property Type="Decimal" Name="PrecioRenta" Nullable="false" Precision="18" Scale="2" />
+    <Property Type="String" Name="Documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="TipoDocumento" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="ProductoConsola" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable" FromRole="Renta" ToRole="ProductoConsola" />
+    <NavigationProperty Name="TipoRenta" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable_1" FromRole="Renta" ToRole="TipoRenta" />
+    <Property Type="Int32" Name="CodigoCliente" Nullable="false" />
+    <NavigationProperty Name="Cliente" Relationship="VideoJuegosDatabaseModel.FK_Renta_Cliente" FromRole="Renta" ToRole="Cliente" />
+  </EntityType>
+  <EntityType Name="TipoRenta">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Decimal" Name="Precio" Nullable="false" Precision="18" Scale="2" />
+    <NavigationProperty Name="Renta" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable_1" FromRole="TipoRenta" ToRole="Renta" />
+  </EntityType>
+  <Association Name="FK_Producto_ToTable">
+    <End Type="VideoJuegosDatabaseModel.Categoria" Role="Categoria" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.Producto" Role="Producto" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Categoria">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Producto">
+        <PropertyRef Name="CodigoCategoria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable_1">
+    <End Type="VideoJuegosDatabaseModel.Consola" Role="Consola" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.ProductoConsola" Role="ProductoConsola" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Consola">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductoConsola">
+        <PropertyRef Name="CodigoConsola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Table_ToTable">
+    <End Type="VideoJuegosDatabaseModel.Producto" Role="Producto" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.ProductoConsola" Role="ProductoConsola" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Producto">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ProductoConsola">
+        <PropertyRef Name="CodigoProducto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Renta_ToTable">
+    <End Type="VideoJuegosDatabaseModel.ProductoConsola" Role="ProductoConsola" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.Renta" Role="Renta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductoConsola">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Renta">
+        <PropertyRef Name="CodigoProductoConsola" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Renta_ToTable_1">
+    <End Type="VideoJuegosDatabaseModel.TipoRenta" Role="TipoRenta" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.Renta" Role="Renta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoRenta">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Renta">
+        <PropertyRef Name="CodigoTipoRenta" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="NombreUsuario" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="CorreoElectronico" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Contrasena" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Type="Boolean" Name="CambioContrasena" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Cliente">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Type="Int32" Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Telefono" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="Direccion" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Renta" Relationship="VideoJuegosDatabaseModel.FK_Renta_Cliente" FromRole="Cliente" ToRole="Renta" />
+  </EntityType>
+  <Association Name="FK_Renta_Cliente">
+    <End Type="VideoJuegosDatabaseModel.Cliente" Role="Cliente" Multiplicity="1" />
+    <End Type="VideoJuegosDatabaseModel.Renta" Role="Renta" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cliente">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Renta">
+        <PropertyRef Name="CodigoCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

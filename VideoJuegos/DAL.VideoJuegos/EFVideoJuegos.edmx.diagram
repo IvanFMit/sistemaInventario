@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="874985a393214f0c85cef553d6077eab" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Categoria" Width="1.5" PointX="0.38783044758617435" PointY="26.015256670310748" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Consola" Width="1.5" PointX="7.6413873991190391" PointY="22.661161999526044" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Producto" Width="1.5" PointX="1.7744728130169554" PointY="23.375522236980274" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.ProductoConsola" Width="1.5" PointX="6.941354913144071" PointY="26.723935124801443" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Renta" Width="1.5" PointX="9.9061820068891073" PointY="8.3532726505553683" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.TipoRenta" Width="1.5" PointX="4.0643583629580018" PointY="29.8737738420599" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Producto_ToTable" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Table_ToTable_1" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Table_ToTable" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Renta_ToTable" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Renta_ToTable_1" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Usuario" Width="1.5" PointX="6.4391227916065255" PointY="19.856988156147761" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Cliente" Width="1.5" PointX="3.2430188503316688" PointY="19.847066620293571" />
+        <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Renta_Cliente" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
