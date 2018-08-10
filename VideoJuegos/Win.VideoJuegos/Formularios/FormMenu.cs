@@ -84,5 +84,70 @@ namespace Win.VideoJuegos
             frm.MdiParent = this;
             frm.Show();
         }
+
+        private void reporteDeClientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_Clientes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteProductoXConsolaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_ProductoC();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteDeRentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_Renta();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reportesDeDevolucionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_Devo();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+     
+
+        private void productosPorConsolaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormProductoConsola();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void invToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormClientes();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void ajusteDeInventariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new FormInv();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteDeSalidasXAjusteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_SAL();
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void reporteDeEntradasXAjusteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var frm = new CR_FR_ENT();
+            frm.MdiParent = this;
+            frm.Show();
+        }
     }
 }

@@ -96,7 +96,7 @@
             | System.Windows.Forms.AnchorStyles.Left)));
             this.button1.Location = new System.Drawing.Point(107, 116);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(65, 0);
+            this.button1.Size = new System.Drawing.Size(65, 23);
             this.button1.TabIndex = 4;
             this.button1.Text = "Aceptar";
             this.button1.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.Location = new System.Drawing.Point(178, 116);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(65, 0);
+            this.button2.Size = new System.Drawing.Size(65, 23);
             this.button2.TabIndex = 5;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;

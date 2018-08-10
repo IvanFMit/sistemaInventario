@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Consola" Width="1.5" PointX="7.6413873991190391" PointY="22.661161999526044" />
         <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Producto" Width="1.5" PointX="1.7744728130169554" PointY="23.375522236980274" />
         <EntityTypeShape EntityType="VideoJuegosDatabaseModel.ProductoConsola" Width="1.5" PointX="6.941354913144071" PointY="26.723935124801443" />
-        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Renta" Width="1.5" PointX="9.9061820068891073" PointY="8.3532726505553683" />
+        <EntityTypeShape EntityType="VideoJuegosDatabaseModel.Renta" Width="5.25" PointX="9.875" PointY="8.375" />
         <EntityTypeShape EntityType="VideoJuegosDatabaseModel.TipoRenta" Width="1.5" PointX="4.0643583629580018" PointY="29.8737738420599" />
         <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Producto_ToTable" />
         <AssociationConnector Association="VideoJuegosDatabaseModel.FK_Table_ToTable_1" />

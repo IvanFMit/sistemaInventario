@@ -1,0 +1,16 @@
+Integrantes grupo de desarrollo:
+Angel Ramón Mena Perdomo
+Héctor Javier Chávez Padilla
+Iván Josué Flores Mejía
+Oscar Javier Lobo
+Walter Bautista Chávez
+
+Agredecidiento especial:
+Nuestro docente de la clase de programación III:
+Bily Andres Fernández, por su ayuda y enseñnazas en cuanto a la clase, este proyecto y el ámbito laboral de nuestra profesión.
+
+
+*Este proyecto es una base de lo que sería un sistema de inventario, en este caso dirigido a la renta de videojuegos.
+No es proyecto terminado al cien por ciento, pero es un gran inicio, y nos fué de mucho aprendizaje,
+y talvez en un futuro,en otras clases o por nuestra cuenta podamos perfeccionarlo.
+Gracias. 

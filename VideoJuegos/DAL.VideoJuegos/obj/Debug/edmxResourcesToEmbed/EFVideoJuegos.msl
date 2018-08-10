@@ -31,6 +31,7 @@
     <EntitySetMapping Name="ProductoConsola">
       <EntityTypeMapping TypeName="VideoJuegosDatabaseModel.ProductoConsola">
         <MappingFragment StoreEntitySet="ProductoConsola">
+          <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
           <ScalarProperty Name="Existencia" ColumnName="Existencia" />
           <ScalarProperty Name="CodigoConsola" ColumnName="CodigoConsola" />
           <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
@@ -43,7 +44,6 @@
         <MappingFragment StoreEntitySet="Renta">
           <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
           <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
-          <ScalarProperty Name="Documento" ColumnName="Documento" />
           <ScalarProperty Name="PrecioRenta" ColumnName="PrecioRenta" />
           <ScalarProperty Name="CodigoTipoRenta" ColumnName="CodigoTipoRenta" />
           <ScalarProperty Name="Fecha" ColumnName="Fecha" />

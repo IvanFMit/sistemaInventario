@@ -128,5 +128,40 @@ namespace DAL.VideoJuegos
                 .Where((r) => r.Producto.Descripcion.Contains(buscar) == true
                     && r.CodigoConsola == consolaId).ToList();
         }
+        public List<ProductoConsola> ObtenerTodosProductosConsolas()
+        {
+            return _ef.ProductoConsola.ToList();
+        }
+
+        public void GuardarProductoConsola(List<ProductoConsola> pcs)
+        {
+            foreach (var pc in pcs)
+            {
+                if (pc.Id == 0)
+                {
+                    var nuevapc = new ProductoConsola();
+                    nuevapc.CodigoConsola = pc.CodigoConsola;
+                    nuevapc.CodigoProducto = pc.CodigoProducto;
+                    nuevapc.Disponibilidad = pc.Disponibilidad;
+                    nuevapc.Existencia = pc.Existencia;
+                    _ef.ProductoConsola.Add(nuevapc);
+                }
+                else
+                {
+                    var pcEnDB = _ef.ProductoConsola.FirstOrDefault((r) => r.Id == pc.Id);
+                    if (pcEnDB != null)
+                    {
+                        pcEnDB.CodigoConsola = pc.CodigoConsola;
+                        pcEnDB.CodigoProducto = pc.CodigoProducto;
+                        pcEnDB.Disponibilidad = pc.Disponibilidad;
+                        pcEnDB.Existencia = pc.Existencia;
+                       
+                    }
+                }
+            }
+            _ef.SaveChanges();
+        }
+       
+
     }
 }

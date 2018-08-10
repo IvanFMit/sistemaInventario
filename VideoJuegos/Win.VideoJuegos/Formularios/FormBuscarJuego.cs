@@ -47,8 +47,9 @@ namespace Win.VideoJuegos.Formularios
                     Id = item.Id,
                     Descripcion = item.Producto.Descripcion,
                     Consola = item.Consola.Descripcion,
-                    Existencia = item.Existencia
-                });
+                    Existencia = item.Existencia,
+                   Disponibilidad=item.Disponibilidad
+    });
             }
 
             dataGridView1.DataSource = listaResultado;
@@ -86,6 +87,7 @@ namespace Win.VideoJuegos.Formularios
         public string Descripcion { get; set; }
         public string Consola { get; set; }
         public int Existencia { get; set; }
+        public int Disponibilidad { get; set; }
     }
 
 }

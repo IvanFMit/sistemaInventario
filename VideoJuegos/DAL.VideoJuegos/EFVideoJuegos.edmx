@@ -4,71 +4,37 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="VideoJuegosDatabaseModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityContainer Name="VideoJuegosDatabaseModelStoreContainer">
-          <EntitySet Name="Categoria" EntityType="VideoJuegosDatabaseModel.Store.Categoria" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Cliente" EntityType="VideoJuegosDatabaseModel.Store.Cliente" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Consola" EntityType="VideoJuegosDatabaseModel.Store.Consola" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Producto" EntityType="VideoJuegosDatabaseModel.Store.Producto" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="ProductoConsola" EntityType="VideoJuegosDatabaseModel.Store.ProductoConsola" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Renta" EntityType="VideoJuegosDatabaseModel.Store.Renta" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="TipoRenta" EntityType="VideoJuegosDatabaseModel.Store.TipoRenta" store:Type="Tables" Schema="dbo" />
-          <EntitySet Name="Usuario" EntityType="VideoJuegosDatabaseModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
-          <AssociationSet Name="FK_Producto_ToTable" Association="VideoJuegosDatabaseModel.Store.FK_Producto_ToTable">
-            <End Role="Categoria" EntitySet="Categoria" />
-            <End Role="Producto" EntitySet="Producto" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Renta_Cliente" Association="VideoJuegosDatabaseModel.Store.FK_Renta_Cliente">
-            <End Role="Cliente" EntitySet="Cliente" />
-            <End Role="Renta" EntitySet="Renta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Renta_ToTable" Association="VideoJuegosDatabaseModel.Store.FK_Renta_ToTable">
-            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
-            <End Role="Renta" EntitySet="Renta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Renta_ToTable_1" Association="VideoJuegosDatabaseModel.Store.FK_Renta_ToTable_1">
-            <End Role="TipoRenta" EntitySet="TipoRenta" />
-            <End Role="Renta" EntitySet="Renta" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_ToTable" Association="VideoJuegosDatabaseModel.Store.FK_Table_ToTable">
-            <End Role="Producto" EntitySet="Producto" />
-            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Table_ToTable_1" Association="VideoJuegosDatabaseModel.Store.FK_Table_ToTable_1">
-            <End Role="Consola" EntitySet="Consola" />
-            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
-          </AssociationSet>
-        </EntityContainer>
+    <Schema Namespace="VideoJuegosDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categoria">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Cliente">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Telefono" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Direccion" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="Consola">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="Producto">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Estado" Type="varchar" Nullable="false" MaxLength="20" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="Existencia" Type="int" Nullable="false" />
           <Property Name="CodigoCategoria" Type="int" Nullable="false" />
         </EntityType>
@@ -76,46 +42,46 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodigoProducto" Type="int" Nullable="false" />
           <Property Name="CodigoConsola" Type="int" Nullable="false" />
           <Property Name="Existencia" Type="int" Nullable="false" />
+          <Property Name="Disponibilidad" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Renta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CodigoProductoConsola" Type="int" Nullable="false" />
           <Property Name="Fecha" Type="datetime" Nullable="false" />
           <Property Name="CodigoTipoRenta" Type="int" Nullable="false" />
-          <Property Name="PrecioRenta" Type="decimal" Nullable="false" Scale="2" />
-          <Property Name="Documento" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="TipoDocumento" Type="varchar" Nullable="false" MaxLength="10" />
+          <Property Name="PrecioRenta" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="TipoDocumento" Type="varchar" MaxLength="10" Nullable="false" />
           <Property Name="CodigoCliente" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="TipoRenta">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Descripcion" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="Precio" Type="decimal" Nullable="false" Scale="2" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Precio" Type="decimal" Precision="18" Scale="2" Nullable="false" />
         </EntityType>
         <EntityType Name="Usuario">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
-          <Property Name="Nombre" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="NombreUsuario" Type="varchar" Nullable="false" MaxLength="50" />
-          <Property Name="CorreoElectronico" Type="varchar" Nullable="false" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CorreoElectronico" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Contrasena" Type="varchar(max)" Nullable="false" />
           <Property Name="CambioContrasena" Type="bit" Nullable="false" />
         </EntityType>
         <Association Name="FK_Producto_ToTable">
-          <End Role="Categoria" Type="VideoJuegosDatabaseModel.Store.Categoria" Multiplicity="1" />
-          <End Role="Producto" Type="VideoJuegosDatabaseModel.Store.Producto" Multiplicity="*" />
+          <End Role="Categoria" Type="Self.Categoria" Multiplicity="1" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Categoria">
               <PropertyRef Name="Id" />
@@ -126,8 +92,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Renta_Cliente">
-          <End Role="Cliente" Type="VideoJuegosDatabaseModel.Store.Cliente" Multiplicity="1" />
-          <End Role="Renta" Type="VideoJuegosDatabaseModel.Store.Renta" Multiplicity="*" />
+          <End Role="Cliente" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Renta" Type="Self.Renta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Cliente">
               <PropertyRef Name="Id" />
@@ -138,8 +104,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Renta_ToTable">
-          <End Role="ProductoConsola" Type="VideoJuegosDatabaseModel.Store.ProductoConsola" Multiplicity="1" />
-          <End Role="Renta" Type="VideoJuegosDatabaseModel.Store.Renta" Multiplicity="*" />
+          <End Role="ProductoConsola" Type="Self.ProductoConsola" Multiplicity="1" />
+          <End Role="Renta" Type="Self.Renta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ProductoConsola">
               <PropertyRef Name="Id" />
@@ -150,8 +116,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Renta_ToTable_1">
-          <End Role="TipoRenta" Type="VideoJuegosDatabaseModel.Store.TipoRenta" Multiplicity="1" />
-          <End Role="Renta" Type="VideoJuegosDatabaseModel.Store.Renta" Multiplicity="*" />
+          <End Role="TipoRenta" Type="Self.TipoRenta" Multiplicity="1" />
+          <End Role="Renta" Type="Self.Renta" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="TipoRenta">
               <PropertyRef Name="Id" />
@@ -162,8 +128,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Table_ToTable">
-          <End Role="Producto" Type="VideoJuegosDatabaseModel.Store.Producto" Multiplicity="1" />
-          <End Role="ProductoConsola" Type="VideoJuegosDatabaseModel.Store.ProductoConsola" Multiplicity="*" />
+          <End Role="Producto" Type="Self.Producto" Multiplicity="1" />
+          <End Role="ProductoConsola" Type="Self.ProductoConsola" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Producto">
               <PropertyRef Name="Id" />
@@ -174,8 +140,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_Table_ToTable_1">
-          <End Role="Consola" Type="VideoJuegosDatabaseModel.Store.Consola" Multiplicity="1" />
-          <End Role="ProductoConsola" Type="VideoJuegosDatabaseModel.Store.ProductoConsola" Multiplicity="*" />
+          <End Role="Consola" Type="Self.Consola" Multiplicity="1" />
+          <End Role="ProductoConsola" Type="Self.ProductoConsola" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Consola">
               <PropertyRef Name="Id" />
@@ -185,6 +151,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityContainer Name="VideoJuegosDatabaseModelStoreContainer">
+          <EntitySet Name="Categoria" EntityType="Self.Categoria" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cliente" EntityType="Self.Cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Consola" EntityType="Self.Consola" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Producto" EntityType="Self.Producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductoConsola" EntityType="Self.ProductoConsola" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renta" EntityType="Self.Renta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TipoRenta" EntityType="Self.TipoRenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Producto_ToTable" Association="Self.FK_Producto_ToTable">
+            <End Role="Categoria" EntitySet="Categoria" />
+            <End Role="Producto" EntitySet="Producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Renta_Cliente" Association="Self.FK_Renta_Cliente">
+            <End Role="Cliente" EntitySet="Cliente" />
+            <End Role="Renta" EntitySet="Renta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Renta_ToTable" Association="Self.FK_Renta_ToTable">
+            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+            <End Role="Renta" EntitySet="Renta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Renta_ToTable_1" Association="Self.FK_Renta_ToTable_1">
+            <End Role="TipoRenta" EntitySet="TipoRenta" />
+            <End Role="Renta" EntitySet="Renta" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable" Association="Self.FK_Table_ToTable">
+            <End Role="Producto" EntitySet="Producto" />
+            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_ToTable_1" Association="Self.FK_Table_ToTable_1">
+            <End Role="Consola" EntitySet="Consola" />
+            <End Role="ProductoConsola" EntitySet="ProductoConsola" />
+          </AssociationSet>
+        </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
@@ -262,6 +262,7 @@
           <NavigationProperty Name="Consola" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable_1" FromRole="ProductoConsola" ToRole="Consola" />
           <NavigationProperty Name="Producto" Relationship="VideoJuegosDatabaseModel.FK_Table_ToTable" FromRole="ProductoConsola" ToRole="Producto" />
           <NavigationProperty Name="Renta" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable" FromRole="ProductoConsola" ToRole="Renta" />
+          <Property Name="Disponibilidad" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Renta">
           <Key>
@@ -272,7 +273,6 @@
           <Property Type="DateTime" Name="Fecha" Nullable="false" Precision="3" />
           <Property Type="Int32" Name="CodigoTipoRenta" Nullable="false" />
           <Property Type="Decimal" Name="PrecioRenta" Nullable="false" Precision="18" Scale="2" />
-          <Property Type="String" Name="Documento" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Type="String" Name="TipoDocumento" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="ProductoConsola" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable" FromRole="Renta" ToRole="ProductoConsola" />
           <NavigationProperty Name="TipoRenta" Relationship="VideoJuegosDatabaseModel.FK_Renta_ToTable_1" FromRole="Renta" ToRole="TipoRenta" />
@@ -417,6 +417,7 @@
           <EntitySetMapping Name="ProductoConsola">
             <EntityTypeMapping TypeName="VideoJuegosDatabaseModel.ProductoConsola">
               <MappingFragment StoreEntitySet="ProductoConsola">
+                <ScalarProperty Name="Disponibilidad" ColumnName="Disponibilidad" />
                 <ScalarProperty Name="Existencia" ColumnName="Existencia" />
                 <ScalarProperty Name="CodigoConsola" ColumnName="CodigoConsola" />
                 <ScalarProperty Name="CodigoProducto" ColumnName="CodigoProducto" />
@@ -429,7 +430,6 @@
               <MappingFragment StoreEntitySet="Renta">
                 <ScalarProperty Name="CodigoCliente" ColumnName="CodigoCliente" />
                 <ScalarProperty Name="TipoDocumento" ColumnName="TipoDocumento" />
-                <ScalarProperty Name="Documento" ColumnName="Documento" />
                 <ScalarProperty Name="PrecioRenta" ColumnName="PrecioRenta" />
                 <ScalarProperty Name="CodigoTipoRenta" ColumnName="CodigoTipoRenta" />
                 <ScalarProperty Name="Fecha" ColumnName="Fecha" />
@@ -486,6 +486,7 @@
         <DesignerProperty Name="EnablePluralization" Value="False" />
         <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
         <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+        <DesignerProperty Name="UseLegacyProvider" Value="True" />
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
