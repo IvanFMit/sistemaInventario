@@ -13,4 +13,8 @@ Bily Andres Fernández, por su ayuda y enseñanzas en cuanto a la clase, este proy
 *Este proyecto es una base de lo que sería un sistema de inventario, en este caso dirigido a la renta de videojuegos.
 No es proyecto terminado al cien por ciento, pero es un gran inicio, y nos fué de mucho aprendizaje,
 y talvez en un futuro,en otras clases o por nuestra cuenta podamos perfeccionarlo.
-Gracias. 
+
+Este sistema usa una base de datos de archivo local, que esta ubicada en la carpeta DATABASE del proyecto.  
+Para su desarrollo se utilizo Entity Framework para la conexion a la base de datos, Crystal Report 13 y Visual Studio 2015.
+
+Gracias por su atención.
