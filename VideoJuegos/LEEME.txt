@@ -7,7 +7,7 @@ Walter Bautista Chávez
 
 Agredecidiento especial:
 Nuestro docente de la clase de programación III:
-Bily Andres Fernández, por su ayuda y enseñnazas en cuanto a la clase, este proyecto y el ámbito laboral de nuestra profesión.
+Bily Andres Fernández, por su ayuda y enseñanzas en cuanto a la clase, este proyecto y el ámbito laboral de nuestra profesión.
 
 
 *Este proyecto es una base de lo que sería un sistema de inventario, en este caso dirigido a la renta de videojuegos.
